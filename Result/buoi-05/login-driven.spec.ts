@@ -1,4 +1,4 @@
-import { LoginCase, Case1, Case2, Case3 } from "./data/login-data.ts";
+import { LoginCase, Case1, Case2, Case3 } from "../../data/login-data";
 import { test, expect } from "@playwright/test";
 const loginCases: LoginCase[] = [Case1, Case2, Case3];
 test.describe("Login Test", () => {
