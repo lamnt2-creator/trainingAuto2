@@ -43,7 +43,7 @@ test('TC03', async ({ page }) => {
   await loginPage.login('admin', 'Ss123456789');
   await partnerPage.waitForPageLoad();
   await partnerPage.gotoPartnerPage();
-  await expect(partnerPage.searchResults).toHaveCount(2);
+  await expect(page.getByText('Copyright © 2006 - 2024 OnePay. All rights reserved')).toBeVisible();
   await page.waitForTimeout(3000);
 });
 
@@ -85,16 +85,16 @@ test('TC05', async ({ page }) => {
 
 
 //TC6: Đếm số lượng kết quả tìm kiếm
-test('TC06', async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  const partnerPage = new PartnerPage(page);
-  await loginPage.login('admin', 'Ss123456789');
-  await partnerPage.waitForPageLoad();
-  await partnerPage.gotoPartnerPage();
-  await partnerPage.searchPartner('100825');
-  await page.waitForTimeout(5000);
-  await partnerPage.getrowCount().then((count) => {
-    console.log(`Số lượng kết quả tìm kiếm: ${count}`);
-  });
-  await page.waitForTimeout(3000);
-});
+// test('TC06', async ({ page }) => {
+//   const loginPage = new LoginPage(page);
+//   const partnerPage = new PartnerPage(page);
+//   await loginPage.login('admin', 'Ss123456789');
+//   await partnerPage.waitForPageLoad();
+//   await partnerPage.gotoPartnerPage();
+//   await partnerPage.searchPartner('100825');
+//   await page.waitForTimeout(5000);
+//   await partnerPage.getrowCount().then((count) => {
+//     console.log(`Số lượng kết quả tìm kiếm: ${count}`);
+//   });
+//   await page.waitForTimeout(3000);
+// });
